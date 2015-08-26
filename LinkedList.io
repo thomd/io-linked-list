@@ -17,39 +17,38 @@ LinkedList := Object clone do(
   // number of nodes
   size := 0
 
-  // print elements of a linked list starting with the head
-  printForward := method(
-    curr := self head
-    if(curr != nil,
-      while(curr next != nil,
-        curr item println
-      )
+  // transform the linked list to an array list
+  asList := method(
+    _list := List clone
+    _curr := self head
+    while(_curr != nil,
+      _list append(_curr item)
+      _curr = _curr next
     )
+    return _list
   )
 
   // add an item
   add := method(newItem,
-    curr := Node clone
-    curr item = newItem
-    if(self head == nil) then(
-      self head = curr
-    ) else(
-      temp := self head
+    _curr := Node clone
+    _curr item = newItem
 
-      // find tail
-      while(temp next != nil,
-        temp = temp next
-      )
-      temp next = curr
-      curr prev = temp
+    // the first node is the head
+    if(self head == nil,
+      self head = _curr
     )
 
-    // the new node is the tail
-    self tail = curr
+    // if we have a tail, set next and previous edge
+    if(self tail != nil,
+      self tail next = _curr
+      _curr prev = self tail
+    )
+
+    // the new node is the new tail
+    self tail = _curr
 
     // we have one more node
     self size = self size + 1
-    return curr
   )
 
   //
