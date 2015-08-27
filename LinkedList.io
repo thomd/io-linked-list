@@ -28,8 +28,8 @@ LinkedList := Object clone do(
     return _list
   )
 
-  // add an item
-  add := method(newItem,
+  // append an item
+  append := method(newItem,
     _curr := Node clone
     _curr item = newItem
 

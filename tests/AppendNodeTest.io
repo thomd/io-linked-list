@@ -3,14 +3,14 @@ doRelativeFile("../LinkedList.io")
 a := LinkedList clone
 
 b := LinkedList clone
-b add("foo")
+b append("foo")
 
 c := LinkedList clone
-c add("foo")
-c add("bar")
-c add("baz")
+c append("foo")
+c append("bar")
+c append("baz")
 
-AddNodesTest := UnitTest clone do(
+AppendNodesTest := UnitTest clone do(
 
   testNumberOfNodes := method(
     assertEquals(a size, 0)

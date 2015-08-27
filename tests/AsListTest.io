@@ -1,9 +1,9 @@
 doRelativeFile("../LinkedList.io")
 
 d := LinkedList clone
-d add("foo")
-d add("bar")
-d add("baz")
+d append("foo")
+d append("bar")
+d append("baz")
 
 AsListTest := UnitTest clone do(
 
