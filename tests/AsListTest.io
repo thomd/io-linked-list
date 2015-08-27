@@ -1,14 +1,14 @@
 doRelativeFile("../LinkedList.io")
 
-d := LinkedList clone
-d append("foo")
-d append("bar")
-d append("baz")
-
 AsListTest := UnitTest clone do(
 
+  _list := LinkedList clone
+  _list append("foo")
+  _list append("bar")
+  _list append("baz")
+
   testAsListNodes := method(
-    assertEquals(d asList, list("foo", "bar", "baz"))
+    assertEquals(_list asList, list("foo", "bar", "baz"))
   )
 
 )
