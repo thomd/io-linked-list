@@ -30,27 +30,48 @@ LinkedList := Object clone do(
 
   // append an item
   append := method(newItem,
-    _curr := Node clone
-    _curr item = newItem
+    _new := Node clone
+    _new item = newItem
 
     // the first node is the head
     if(self head == nil,
-      self head = _curr
+      self head = _new
     )
 
     // if we have a tail, set next and previous edge
     if(self tail != nil,
-      self tail next = _curr
-      _curr prev = self tail
+      self tail next = _new
+      _new prev = self tail
     )
 
     // the new node is the new tail
-    self tail = _curr
+    self tail = _new
 
     // we have one more node
     self size = self size + 1
   )
 
-  //
+  // insert an item at a given index
+  atInsert := method(position, newItem,
+    _new := Node clone
+    _new item = newItem
+
+    // find node of the given position
+    _curr := self head
+    _pos := 0
+    while(_pos < position,
+      _curr item print
+      _curr = _curr next
+      _pos = _pos + 1
+    )
+
+
+    /*_new prev = _curr*/
+    /*_curr prev next = _new*/
+    /*_new next = _curr next*/
+    /*_curr next prev = _new*/
+
+  )
+
 )
 

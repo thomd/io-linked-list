@@ -10,7 +10,7 @@ c append("foo")
 c append("bar")
 c append("baz")
 
-AppendNodesTest := UnitTest clone do(
+AppendsTest := UnitTest clone do(
 
   testNumberOfNodes := method(
     assertEquals(a size, 0)
